@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="conter" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      #page {
+        padding-top: 150px;
+        padding-left: 500px;
+      }
+      #one {
+        font-size: 60px;
+        color: darkblue;
+      }
+      #two {
+        font-size: 60px;
+        padding-left: 170px;
+        color: black;
+      }
+
+      #three {
+        margin-top: 30px;
+      }
+      #four,
+      #five,
+      #six {
+        height: 30px;
+        width: 100px;
+        border: 2px solid black;
+        border-radius: 10px;
+        /* padding-bottom: 15px; */
+        /* padding-bottom: 20px; */
+        padding-top: 5px;
+        padding-left: 5px;
+      }
+
+      #four {
+        margin-right: 50px;
+        padding-top: 3px;
+        padding-left: 7px;
+      }
+
+      #five {
+        margin-right: 50px;
+        padding-left: 23px;
+        padding-top: 5px;
+      }
+      .pp {
+        margin: 0px;
+      }
+      mouse:hover {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="page">
+      <div id="one">
+        <p style="margin-bottom: 30px; padding-left: 50px">COUNTER</p>
+      </div>
+      <div id="two">0</div>
+      <div style="display: flex" id="three">
+        <div id="four" class="mouse increase"><p class="pp">INCREASE</p></div>
+        <div id="five" class="mouse reset"><p class="pp">RESET</p></div>
+        <div id="six" class="mouse decrease"><p class="pp">DECREASE</p></div>
+      </div>
+    </section>
+    <script>
+      let display = document.querySelector("#two");
+      let btn = document.querySelectorAll(".mouse");
+      let count = 0;
+      for (const item of btn) {
+        item.addEventListener("click", (e) => {
+          // let style = e.currentTarget;
+          // console.log(e);
+
+          if (item.id === "four") {
+            count++;
+          }
+          if (item.id === "six") {
+            count--;
+          } else if (item.id === "five") {
+            count = 0;
+          }
+          if (count > 0) {
+            display.style.color = "green";
+          }
+          if (count < 0) {
+            display.style.color = "red";
+          } else if (count === 0) {
+            display.style.color = "black";
+          }
+          console.log(count);
+          display.textContent = count;
+        });
+      }
+    </script>
+  </body>
+</html>
